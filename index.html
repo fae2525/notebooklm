@@ -1,8 +1,1225 @@
-<html>
-  <head>
-  <title> NotebookLM </title>
-  </head>
-  <body>
-    <h1> NotebookLM</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotebookLM en la Docencia - Presentación</title>
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Google colors for presentation */
+  --google-blue: #4285f4;
+  --google-green: #34a853;
+  --google-yellow: #fbbc04;
+  --google-red: #ea4335;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.presentation-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-32);
+  overflow: hidden;
+}
+
+.slide {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 675px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-32);
+  display: none;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--color-card-border);
+}
+
+.slide.active {
+  display: flex;
+  animation: slideIn 0.4s var(--ease-standard);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-header {
+  border-bottom: 2px solid var(--google-blue);
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.slide-number {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.slide-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-top: var(--space-8);
+}
+
+.slide-subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-8);
+}
+
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: var(--space-8);
+}
+
+.slide-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slide-content::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.slide-content::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-32);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-card-border);
+}
+
+.btn {
+  padding: var(--space-8) var(--space-16);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  font-family: var(--font-family-base);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-secondary-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slide-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bullet-list li {
+  padding: var(--space-12) 0;
+  padding-left: var(--space-24);
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+.bullet-list li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--google-blue);
+  font-size: var(--font-size-xl);
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+}
+
+.column-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom: 2px solid var(--google-green);
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-16);
+}
+
+.card {
+  background: var(--color-bg-1);
+  padding: var(--space-16);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-card-border);
+}
+
+.card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.card p, .card ul {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.card ul {
+  list-style: none;
+  padding-left: var(--space-16);
+}
+
+.card ul li {
+  padding: var(--space-4) 0;
+}
+
+.card ul li::before {
+  content: "•";
+  color: var(--google-blue);
+  font-weight: bold;
+  margin-right: var(--space-8);
+}
+
+.title-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-bg-1) 0%, var(--color-bg-3) 100%);
+}
+
+.title-slide .main-title {
+  font-size: 48px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
+.title-slide .main-subtitle {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-32);
+}
+
+.google-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--space-32);
+}
+
+.google-logo span:nth-child(1) { color: var(--google-blue); }
+.google-logo span:nth-child(2) { color: var(--google-red); }
+.google-logo span:nth-child(3) { color: var(--google-yellow); }
+.google-logo span:nth-child(4) { color: var(--google-blue); }
+.google-logo span:nth-child(5) { color: var(--google-green); }
+.google-logo span:nth-child(6) { color: var(--google-red); }
+
+.three-spaces-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.space-panel {
+  background: var(--color-bg-2);
+  padding: var(--space-20);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-card-border);
+  text-align: center;
+}
+
+.space-panel h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-12);
+}
+
+.space-panel p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.numbered-list {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+.numbered-list li {
+  counter-increment: item;
+  padding: var(--space-12) 0;
+  padding-left: var(--space-32);
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+.numbered-list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  background: var(--google-blue);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.checkmark-list {
+  list-style: none;
+  padding: 0;
+}
+
+.checkmark-list li {
+  padding: var(--space-12) 0;
+  padding-left: var(--space-32);
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+.checkmark-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--google-green);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.tip-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tip-list li {
+  padding: var(--space-12);
+  margin-bottom: var(--space-12);
+  background: var(--color-bg-2);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  border-left: 4px solid var(--google-yellow);
+}
+
+.warning-box {
+  background: var(--color-bg-4);
+  padding: var(--space-16);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--google-red);
+  margin-top: var(--space-16);
+}
+
+.warning-box ul {
+  list-style: none;
+  padding-left: var(--space-16);
+}
+
+.warning-box ul li {
+  padding: var(--space-8) 0;
+  font-size: var(--font-size-base);
+}
+
+.warning-box ul li::before {
+  content: "⚠";
+  margin-right: var(--space-8);
+  color: var(--google-red);
+}
+
+.screenshot {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-card-border);
+  margin: var(--space-16) 0;
+}
+
+.emphasis {
+  color: var(--google-blue);
+  font-weight: var(--font-weight-semibold);
+}
+
+.thank-you {
+  text-align: center;
+  font-size: 48px;
+  font-weight: var(--font-weight-bold);
+  color: var(--google-blue);
+  margin: var(--space-32) 0;
+}
+
+.resources {
+  background: var(--color-bg-1);
+  padding: var(--space-20);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .slide {
+    padding: var(--space-16);
+  }
+  
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .three-spaces-visual {
+    grid-template-columns: 1fr;
+  }
+  
+  .slide-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .title-slide .main-title {
+    font-size: var(--font-size-4xl);
+  }
+}
+      </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-wrapper">
+            <!-- Slide 1: Title -->
+            <div class="slide active title-slide" data-slide="1">
+                <h1 class="main-title">NotebookLM en la Docencia</h1>
+                <p class="main-subtitle">Asistente de IA para la Gestión del Conocimiento</p>
+                <div class="google-logo">
+                    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                </div>
+            </div>
+
+            <!-- Slide 2: What is NotebookLM -->
+            <div class="slide" data-slide="2">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 2 / 24</div>
+                    <h2 class="slide-title">¿Qué es NotebookLM?</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Asistente de investigación con IA de Google</li>
+                        <li>Trabaja exclusivamente con <span class="emphasis">TUS fuentes</span></li>
+                        <li>Respuestas con citas directas</li>
+                        <li>Reduce alucinaciones</li>
+                        <li>Basado en Gemini 1.5 Pro</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140162/search_images/ef01663823152fe9c6ce2b2b18850a976f659203.jpg" alt="NotebookLM" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 3: Creating Account -->
+            <div class="slide" data-slide="3">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 3 / 24</div>
+                    <h2 class="slide-title">Crear Cuenta en NotebookLM</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li><span class="emphasis">Requisito:</span> Cuenta de Gmail</li>
+                        <li><span class="emphasis">Acceso:</span> notebooklm.google.com</li>
+                        <li>Iniciar sesión con Google</li>
+                        <li>Acceso inmediato y gratuito</li>
+                        <li>También disponible en app móvil (Android/iOS)</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140100/search_images/2de49ce1893f2aaecc5e52e1c749d52f7af3d15f.jpg" alt="NotebookLM Login" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 4: Main Interface -->
+            <div class="slide" data-slide="4">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 4 / 24</div>
+                    <h2 class="slide-title">Primera Pantalla - Interfaz Principal</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li><span class="emphasis">Mis cuadernos:</span> espacio personal</li>
+                        <li><span class="emphasis">Cuadernos destacados:</span> ejemplos de Google</li>
+                        <li>Cuadernos recientes</li>
+                        <li>Botón "+ Crear nuevo cuaderno"</li>
+                        <li>Menú de ajustes (idioma, modo claro/oscuro, ayuda)</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140115/search_images/2e05b37a2a58ec5d1fa067fbb745a6a91512a5c5.jpg" alt="Interfaz Principal" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 5: Settings Menu -->
+            <div class="slide" data-slide="5">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 5 / 24</div>
+                    <h2 class="slide-title">Menú de Ajustes</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Idioma de salida (Output Language)</li>
+                        <li>Modo claro / Modo oscuro</li>
+                        <li>Ayuda de NotebookLM</li>
+                        <li>Enviar comentarios</li>
+                        <li>Discord de la comunidad</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140137/search_images/df5e186324cf4cabe7d77803bb17ebd246c059b7.jpg" alt="Menú de Ajustes" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 6: Creating New Notebook -->
+            <div class="slide" data-slide="6">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 6 / 24</div>
+                    <h2 class="slide-title">Crear Nuevo Cuaderno</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Click en "+ Crear nuevo"</li>
+                        <li>Cada cuaderno = un proyecto o tema</li>
+                    </ul>
+                    <div class="card">
+                        <h3>Límites versión gratuita:</h3>
+                        <ul>
+                            <li>Hasta 100 cuadernos</li>
+                            <li>Hasta 50 fuentes por cuaderno</li>
+                            <li>Cada fuente: 500,000 palabras o 200 MB</li>
+                            <li>50 consultas de chat al día</li>
+                        </ul>
+                    </div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140137/search_images/90b66d8d722e5cc8defc49e42b702e9333b0c312.jpg" alt="Crear Cuaderno" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 7: Document Types -->
+            <div class="slide" data-slide="7">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 7 / 24</div>
+                    <h2 class="slide-title">Agregar Fuentes - Tipos de Documentos</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3 class="column-title">Formatos Admitidos</h3>
+                            <ul class="bullet-list">
+                                <li>PDF</li>
+                                <li>Archivos de texto (.txt)</li>
+                                <li>Markdown (.md)</li>
+                                <li>Archivos de audio (MP3)</li>
+                                <li>Documentos de Google</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="column-title">Contenido Online</h3>
+                            <ul class="bullet-list">
+                                <li>Presentaciones de Google</li>
+                                <li>URLs de páginas web</li>
+                                <li>URLs de vídeos de YouTube</li>
+                                <li>Texto copiado y pegado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Upload Methods -->
+            <div class="slide" data-slide="8">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 8 / 24</div>
+                    <h2 class="slide-title">Agregar Fuentes - Métodos de Carga</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="grid-layout">
+                        <div class="card">
+                            <h3>📁 Desde Drive</h3>
+                            <ul>
+                                <li>Documentos de Google</li>
+                                <li>Presentaciones de Google</li>
+                                <li>Sincronización automática</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>📤 Subir archivos</h3>
+                            <ul>
+                                <li>PDF, TXT, Markdown</li>
+                                <li>Audio (MP3)</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>🔗 Enlaces externos</h3>
+                            <ul>
+                                <li>URLs de sitios web</li>
+                                <li>Vídeos de YouTube</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>📋 Pegar texto</h3>
+                            <ul>
+                                <li>Texto plano directamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140137/search_images/63e33cfb5a01d6e07995cf7c43649e1f3baa935e.jpg" alt="Métodos de Carga" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 9: Discover Sources -->
+            <div class="slide" data-slide="9">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 9 / 24</div>
+                    <h2 class="slide-title">Función 'Descubrir Fuentes'</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Busca fuentes relevantes en la web</li>
+                        <li>Describe el tema de interés</li>
+                        <li>Resultados con título y descripción</li>
+                        <li>Importa directamente al cuaderno</li>
+                        <li>Facilita el inicio de proyectos</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140137/search_images/0184f5c3a07ce38ac366c94ef4c76a712fd5cdcc.jpg" alt="Descubrir Fuentes" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 10: Three Spaces -->
+            <div class="slide" data-slide="10">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 10 / 24</div>
+                    <h2 class="slide-title">Pantalla de Trabajo - Tres Espacios</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="three-spaces-visual">
+                        <div class="space-panel">
+                            <h3>📚 FUENTES</h3>
+                            <p>(Panel Izquierdo)</p>
+                            <p>Lista y gestión de todas las fuentes cargadas</p>
+                        </div>
+                        <div class="space-panel">
+                            <h3>💬 CHAT/CHARLAR</h3>
+                            <p>(Panel Central)</p>
+                            <p>Conversación con la IA basada en tus fuentes</p>
+                        </div>
+                        <div class="space-panel">
+                            <h3>🎨 STUDIO</h3>
+                            <p>(Panel Derecho)</p>
+                            <p>Generación de contenidos y notas</p>
+                        </div>
+                    </div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140115/search_images/5f569fa3a01cf006495976a5c10ab1646804a6af.jpg" alt="Tres Espacios" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 11: Sources Space -->
+            <div class="slide" data-slide="11">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 11 / 24</div>
+                    <h2 class="slide-title">Espacio Fuentes (Panel Izquierdo)</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>📋 Lista de todas las fuentes cargadas</li>
+                        <li>📝 Resumen automático de cada fuente</li>
+                        <li>✓ Seleccionar/deseleccionar fuentes para chat</li>
+                        <li>🔄 Sincronizar documentos de Drive</li>
+                        <li>🗑️ Eliminar fuentes</li>
+                        <li>👁️ Ver detalles de cada documento</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140115/search_images/5f569fa3a01cf006495976a5c10ab1646804a6af.jpg" alt="Espacio Fuentes" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 12: Chat Space -->
+            <div class="slide" data-slide="12">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 12 / 24</div>
+                    <h2 class="slide-title">Espacio Chat/Charlar (Panel Central)</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Hacer preguntas en lenguaje natural</li>
+                        <li>Respuestas basadas <span class="emphasis">SOLO</span> en tus fuentes</li>
+                        <li>Citas directas con referencias</li>
+                        <li>Preguntas sugeridas automáticas</li>
+                        <li>Historial de conversación</li>
+                        <li>Guardar respuestas como notas</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140162/search_images/fa04f6da1fc98e24e49cd64152c1878843667bc9.jpg" alt="Espacio Chat" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 13: Chat Configuration -->
+            <div class="slide" data-slide="13">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 13 / 24</div>
+                    <h2 class="slide-title">Configuración del Chat</h2>
+                    <p class="slide-subtitle">Opciones de personalización (versión Pro)</p>
+                </div>
+                <div class="slide-content">
+                    <div class="grid-layout">
+                        <div class="card">
+                            <h3>🔵 Predeterminado</h3>
+                            <p>Investigación general</p>
+                        </div>
+                        <div class="card">
+                            <h3>📊 Analista</h3>
+                            <p>Estrategia y decisiones</p>
+                        </div>
+                        <div class="card">
+                            <h3>🧭 Guía</h3>
+                            <p>Centro de ayuda</p>
+                        </div>
+                        <div class="card">
+                            <h3>⚙️ Personalizado</h3>
+                            <p>Define tu propio estilo</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: var(--space-16); font-size: var(--font-size-base); color: var(--color-text-secondary);">También permite configurar la longitud de las respuestas</p>
+                </div>
+            </div>
+
+            <!-- Slide 14: Studio Space -->
+            <div class="slide" data-slide="14">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 14 / 24</div>
+                    <h2 class="slide-title">Espacio Studio (Panel Derecho)</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="two-columns">
+                        <div class="card">
+                            <h3>🎧 RESUMEN DE AUDIO</h3>
+                            <ul>
+                                <li>Podcast automático con dos voces</li>
+                                <li>En más de 50 idiomas</li>
+                                <li>Personalizable antes de generar</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>📝 NOTAS</h3>
+                            <ul>
+                                <li>Repositorio de contenidos generados</li>
+                                <li>Notas manuales</li>
+                                <li>Notas guardadas del chat</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140115/search_images/e33cac9dd664054c49a2a22727e36e23525a7444.jpg" alt="Espacio Studio" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 15: Studio Generation Functions -->
+            <div class="slide" data-slide="15">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 15 / 24</div>
+                    <h2 class="slide-title">Espacio Studio - Funciones de Generación</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="grid-layout">
+                        <div class="card"><h3>❓ Preguntas frecuentes (FAQ)</h3></div>
+                        <div class="card"><h3>📖 Guía de estudio</h3></div>
+                        <div class="card"><h3>📑 Índice / Tabla de contenidos</h3></div>
+                        <div class="card"><h3>⏱️ Cronología</h3><p>(eventos temporales)</p></div>
+                        <div class="card"><h3>📄 Documento de resumen</h3></div>
+                        <div class="card"><h3>🗺️ Mapas conceptuales</h3></div>
+                        <div class="card"><h3>✍️ Informes estilo blog</h3></div>
+                    </div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140162/search_images/49037be129c70c01f15a6f179c25f567814f3f81.jpg" alt="Funciones de Generación" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 16: Audio Summary -->
+            <div class="slide" data-slide="16">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 16 / 24</div>
+                    <h2 class="slide-title">Espacio Studio - Resumen de Audio</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Conversación entre dos anfitriones IA</li>
+                        <li>Análisis profundo del contenido</li>
+                        <li><span class="emphasis">Personalización del podcast:</span>
+                            <ul style="list-style: disc; padding-left: var(--space-32); margin-top: var(--space-8);">
+                                <li>Enfoque específico</li>
+                                <li>Tono de la conversación</li>
+                            </ul>
+                        </li>
+                        <li>Descarga en formato audio</li>
+                        <li>Escuchar mientras realizas otras tareas</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140162/search_images/c7e7626f3c4fb0aa400814f481820bf54190e90a.jpg" alt="Resumen de Audio" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 17: Notes -->
+            <div class="slide" data-slide="17">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 17 / 24</div>
+                    <h2 class="slide-title">Espacio Studio - Notas</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="bullet-list">
+                        <li>Crear notas manuales</li>
+                        <li>Guardar respuestas del chat</li>
+                        <li>Títulos editables</li>
+                        <li>Organización por fecha</li>
+                        <li><span class="emphasis">Adjuntar notas como nuevas fuentes</span></li>
+                        <li>Exportar notas</li>
+                    </ul>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1763140162/search_images/2e9e257714654e2c219ddcff3af8508f2a73e3fe.jpg" alt="Notas" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Slide 18: Attach Notes as Source -->
+            <div class="slide" data-slide="18">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 18 / 24</div>
+                    <h2 class="slide-title">Adjuntar Notas como Fuente</h2>
+                </div>
+                <div class="slide-content">
+                    <ol class="numbered-list">
+                        <li>Crear o guardar una nota en Studio</li>
+                        <li>Seleccionar la nota</li>
+                        <li>Opción "Adjuntar como fuente"</li>
+                        <li>La nota se convierte en fuente consultable</li>
+                        <li>Aparece en el panel de Fuentes</li>
+                        <li>El sistema puede referenciarla</li>
+                    </ol>
+                    <div class="card" style="margin-top: var(--space-16);">
+                        <h3>💡 Ventaja clave</h3>
+                        <p>Permite construir conocimiento de forma iterativa, convirtiendo análisis previos en fuentes para nuevas consultas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: Teaching Applications I -->
+            <div class="slide" data-slide="19">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 19 / 24</div>
+                    <h2 class="slide-title">Aplicaciones en Docencia</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="two-columns">
+                        <div class="card">
+                            <h3>📚 Preparación de clases</h3>
+                            <ul>
+                                <li>Generar guiones narrados</li>
+                                <li>Crear material de repaso</li>
+                                <li>FAQs por tema</li>
+                                <li>Audios para flipped classroom</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>✅ Evaluación</h3>
+                            <ul>
+                                <li>Cuestionarios automáticos</li>
+                                <li>Tarjetas didácticas (flashcards)</li>
+                                <li>Preguntas de autoevaluación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 20: Teaching Applications II -->
+            <div class="slide" data-slide="20">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 20 / 24</div>
+                    <h2 class="slide-title">Aplicaciones en Docencia (cont.)</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="two-columns">
+                        <div class="card">
+                            <h3>🔬 Investigación</h3>
+                            <ul>
+                                <li>Análisis comparativo de fuentes</li>
+                                <li>Resúmenes con citas claras</li>
+                                <li>Organización de bibliografía</li>
+                                <li>Mapas conceptuales automáticos</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>🤝 Colaboración</h3>
+                            <ul>
+                                <li>Compartir cuadernos</li>
+                                <li>Roles de editor/solo lectura</li>
+                                <li>Opción "Solo chat" (versión Pro)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 21: Limitations -->
+            <div class="slide" data-slide="21">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 21 / 24</div>
+                    <h2 class="slide-title">Limitaciones a Considerar</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="warning-box">
+                        <ul>
+                            <li>No admite Excel ni hojas de cálculo</li>
+                            <li>Menores de edad no pueden usarlo aún</li>
+                            <li>No hay almacenamiento local (todo en nube)</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="margin-top: var(--space-16);">
+                        <h3>Límites diarios en versión gratuita:</h3>
+                        <ul>
+                            <li>50 consultas de chat</li>
+                            <li>3 generaciones de audio</li>
+                            <li>3 generaciones de vídeo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Practical Tips -->
+            <div class="slide" data-slide="22">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 22 / 24</div>
+                    <h2 class="slide-title">Consejos Prácticos</h2>
+                </div>
+                <div class="slide-content">
+                    <ul class="tip-list">
+                        <li>💡 Nombra archivos de forma descriptiva</li>
+                        <li>💡 Organiza cuadernos por temas/asignaturas</li>
+                        <li>💡 Usa "Descubrir fuentes" para ampliar</li>
+                        <li>💡 Guarda respuestas valiosas como notas</li>
+                        <li>💡 Adjunta notas como fuentes para construir conocimiento</li>
+                        <li>💡 Aprovecha los resúmenes de audio para repasar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 23: Conclusions -->
+            <div class="slide" data-slide="23">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 23 / 24</div>
+                    <h2 class="slide-title">Conclusiones</h2>
+                    <p class="slide-subtitle">NotebookLM ofrece:</p>
+                </div>
+                <div class="slide-content">
+                    <ul class="checkmark-list">
+                        <li>Gestión eficiente de información</li>
+                        <li>Respuestas fundamentadas y citadas</li>
+                        <li>Múltiples formatos de salida</li>
+                        <li>Herramienta gratuita y potente</li>
+                        <li>Reduce carga cognitiva del docente</li>
+                        <li>Personalización del aprendizaje</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 24: Resources and Thank You -->
+            <div class="slide" data-slide="24">
+                <div class="slide-header">
+                    <div class="slide-number">Diapositiva 24 / 24</div>
+                    <h2 class="slide-title">Recursos y Contacto</h2>
+                </div>
+                <div class="slide-content">
+                    <div class="resources">
+                        <ul class="bullet-list">
+                            <li><span class="emphasis">Web:</span> notebooklm.google.com</li>
+                            <li><span class="emphasis">Ayuda oficial:</span> support.google.com</li>
+                            <li><span class="emphasis">Comunidad Discord</span></li>
+                            <li><span class="emphasis">Versión Pro</span> disponible para instituciones</li>
+                        </ul>
+                    </div>
+                    <div class="thank-you">¡Gracias!</div>
+                    <div class="card" style="text-align: center; margin-top: var(--space-16);">
+                        <h3>¿Preguntas?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-secondary" id="prevBtn">← Anterior</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span> / <span id="totalSlides">24</span>
+            </div>
+            <button class="btn btn-primary" id="nextBtn">Siguiente →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 24;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+            } else if (n < 1) {
+                currentSlide = 1;
+            } else {
+                currentSlide = n;
+            }
+            
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            const targetSlide = document.querySelector(`[data-slide="${currentSlide}"]`);
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+            }
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Event listeners
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+        
+        // Initialize
+        document.getElementById('totalSlides').textContent = totalSlides;
+        showSlide(1);
+    </script>
+</body>
 </html>
